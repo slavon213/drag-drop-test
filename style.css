@@ -1,0 +1,181 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&display=swap");
+
+:root {
+    --brs-10: 10px;
+    --color-main: #e8f9fd;
+    --color-item: #59ce8f;
+    --color-item-opacity-1: rgba(89, 206, 144, 0.11);
+    --color-accent: #ff1e00de;
+}
+
+*,
+*::after,
+*::before {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html,
+body {
+    min-height: 100vh;
+    font-family: "Lato", sans-serif;
+}
+
+body {
+    background-color: var(--color-main);
+    color: black;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    gap: 2em;
+}
+
+h1 {
+    color: var(--color-accent);
+    text-transform: uppercase;
+
+    span {
+        display: inline-block;
+        color: var(--color-item);
+        font-weight: 800;
+    }
+}
+
+.wrapper {
+    width: 900px;
+    height: 600px;
+    padding: 10px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+    flex-basis: 400px;
+    padding: 20px;
+    border: 1px solid var(--color-item);
+    overflow-y: auto;
+    transition: background-color ease 1s;
+    border-radius: var(--brs-10);
+}
+.container-drag-over {
+    transition: background-color ease 0.125s;
+    background-color: var(--color-item-opacity-1);
+    border: 1px solid var(--color-accent);
+}
+
+ul {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    list-style: none;
+    margin-block-end: auto;
+}
+
+li {
+    height: 2rem;
+    display: flex;
+    align-items: center;
+    padding-inline-start: 10px;
+    background-color: var(--color-item);
+    cursor: grab;
+    border-radius: var(--brs-10);
+    border: solid 1px transparent;
+    transition: border-color ease 500ms;
+
+    &:hover {
+        transition: border-color ease 100ms;
+        border: solid 1px #ff1e00b7;
+    }
+}
+
+button {
+    background-color: #ff1e00b7;
+    color: #ffffff;
+    min-height: 2rem;
+    border-radius: var(--brs-10);
+    transition: background-color ease 400ms;
+    outline: none;
+    border: 1px solid transparent;
+
+    &:hover {
+        background-color: #ff1e00de;
+        border: 1px solid var(--color-item);
+    }
+
+    &:active {
+        transition: background-color ease 50ms;
+        color: #ff1e00de;
+        background-color: #fff;
+    }
+}
+
+
+ @-webkit-keyframes wobble-hor-bottom {
+    0%,
+    100% {
+      -webkit-transform: translateX(0%);
+              transform: translateX(0%);
+      -webkit-transform-origin: 50% 50%;
+              transform-origin: 50% 50%;
+    }
+    15% {
+      -webkit-transform: translateX(-30px) rotate(-6deg);
+              transform: translateX(-30px) rotate(-6deg);
+    }
+    30% {
+      -webkit-transform: translateX(15px) rotate(6deg);
+              transform: translateX(15px) rotate(6deg);
+    }
+    45% {
+      -webkit-transform: translateX(-15px) rotate(-3.6deg);
+              transform: translateX(-15px) rotate(-3.6deg);
+    }
+    60% {
+      -webkit-transform: translateX(9px) rotate(2.4deg);
+              transform: translateX(9px) rotate(2.4deg);
+    }
+    75% {
+      -webkit-transform: translateX(-6px) rotate(-1.2deg);
+              transform: translateX(-6px) rotate(-1.2deg);
+    }
+  }
+  @keyframes wobble-hor-bottom {
+    0%,
+    100% {
+      -webkit-transform: translateX(0%);
+              transform: translateX(0%);
+      -webkit-transform-origin: 50% 50%;
+              transform-origin: 50% 50%;
+    }
+    15% {
+      -webkit-transform: translateX(-30px) rotate(-6deg);
+              transform: translateX(-30px) rotate(-6deg);
+    }
+    30% {
+      -webkit-transform: translateX(15px) rotate(6deg);
+              transform: translateX(15px) rotate(6deg);
+    }
+    45% {
+      -webkit-transform: translateX(-15px) rotate(-3.6deg);
+              transform: translateX(-15px) rotate(-3.6deg);
+    }
+    60% {
+      -webkit-transform: translateX(9px) rotate(2.4deg);
+              transform: translateX(9px) rotate(2.4deg);
+    }
+    75% {
+      -webkit-transform: translateX(-6px) rotate(-1.2deg);
+              transform: translateX(-6px) rotate(-1.2deg);
+    }
+  }
+  
+
+.animated {
+    -webkit-animation: wobble-hor-bottom 0.8s ease-in-out infinite alternate;
+    animation: wobble-hor-bottom 0.8s ease-in-out infinite alternate;
+}
