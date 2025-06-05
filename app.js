@@ -58,4 +58,5 @@ function showInfo(count=0) {
     let displayElement = document.querySelector(".info");
     displayElement.innerHTML = `В цьому списку <span>&nbsp;${count}&nbsp;</span> елементи(ів)`;
     displayElement.style.visibility = "visible";
+    displayElement.scrollIntoView({behavior: "smooth", block: "start"});
 }
