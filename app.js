@@ -33,8 +33,8 @@ containers.forEach((container) => {
 
     container.addEventListener("drop", (e) => {
         if (draggedItem && innerUl) {
-            // innerUl.appendChild(draggedItem);
-            innerUl.insertBefore(draggedItem, innerUl.firstChild);
+            innerUl.appendChild(draggedItem);
+            // innerUl.insertBefore(draggedItem, innerUl.firstChild);
         }
         animatedWords.classList.remove("animated");
         container.classList.remove("container-drag-over");
@@ -49,11 +49,13 @@ buttons.forEach((button) => {
     button.addEventListener("click", () => {
         const parentEl = button.closest(".container");
         const ulElement = parentEl.querySelector("ul");
-        const liElems = [...ulElement.children];
-        console.log("\nTotal elements: " + liElems.length);
-
-        for (const element of liElems) {
-            console.log(element.textContent);
-        }
+        const liElems = ulElement.children.length;
+        showInfo(liElems);
     });
 });
+
+function showInfo(count=0) {
+    let displayElement = document.querySelector(".info");
+    displayElement.innerHTML = `В цьому списку <span>&nbsp;${count}&nbsp;</span> елементи(ів)`;
+    displayElement.style.visibility = "visible";
+}
